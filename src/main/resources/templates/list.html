@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Quest Computing Ltd - List Records</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="text-center">
+	<div th:insert="~{fragments/js :: jquery}"></div>
+	<div th:insert="~{fragments/js :: bootstrap}"></div>
+
+	<div class="container">
+		<div class="row">
+			<h1>List of Records</h1>
+
+			<div th:if="!${#lists.isEmpty(records)}">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col" class="text-center">Name</th>
+							<th scope="col" class="text-center">PPS</th>
+							<th scope="col" class="text-center">DOB</th>
+							<th scope="col" class="text-center">Mobile Phone</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="record : ${records}">
+							<td th:text="${record.name}" />
+							<td th:text="${record.pps}" />
+							<td th:text="${record.dob}" />
+							<td th:text="${record.mobile}" />
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div th:if="${#lists.isEmpty(records)}">
+				<h2>No records have been created</h2>
+			</div>
+		</div>
+	</div>
+	<div th:insert="~{fragments/footer :: urls}"></div>
+	<div th:insert="~{fragments/footer :: copy}"></div>
+</body>
+</html>

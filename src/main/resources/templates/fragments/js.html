@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="jquery">
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/jquery-ui.min.js"></script>
+		<script src="/js/jquery.validate.min.js"></script>
+		<script src="/js/jquery.validate.min.js"></script>
+		<link rel="stylesheet" href="/css/jquery-ui.min.css" />
+	</div>
+
+	<div th:fragment="bootstrap">
+		<script src="/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	</div>
+
+	<div th:fragment="validation">
+		<script>					
+			$(document).ready(function() {
+				$('#insertRecordForm').validate({
+					rules : {
+						name : {
+							required : true,
+							maxlength: 25
+						},
+						pps : {
+							required : true
+						},
+						dob : {
+							required : true
+						},
+						mobile : {
+						}
+					},
+					messages : {
+						name : {
+							required : "Please fill out this field",
+							maxlength : "Name must only contain 25 characters"
+						},
+						pps : {
+							required : "Please fill out this field"
+						},
+						dob : {
+							required : "Please fill out this field"
+						},
+						mobile : {
+						}
+					}
+				});
+			});
+		</script>
+	</div>
+</body>
+</html>
