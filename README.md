@@ -14,7 +14,7 @@
 - [x] MVN Compiles
 - [x] Deploys locally first time
 - [x] 3 Pages in total
-- [x] The landing page displays ~~two~~three links
+- [x] The landing page displays ~~two~~ three links
 - [x] Add a new record
 - [x] List all records
 - [x] List all records by creation date
