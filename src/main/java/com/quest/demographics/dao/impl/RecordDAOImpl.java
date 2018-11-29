@@ -1,6 +1,5 @@
 package com.quest.demographics.dao.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -50,7 +49,7 @@ public class RecordDAOImpl implements RecordDAO {
 
 		Iterable<RecordEntity> result = null;
 		try {
-			logger.debug(String.format("RecordDAOImpl: Attempting to get all record rows in the database"));
+			logger.debug("RecordDAOImpl: Attempting to get all record rows in the database");
 			result = recordRepository.findAll();
 			if (null == result) {
 				throw new DemographicsDatabaseAccessException("Failed to get all record rows in the database");
@@ -69,7 +68,7 @@ public class RecordDAOImpl implements RecordDAO {
 
 		List<RecordEntity> result = null;
 		try {
-			logger.debug(String.format("RecordDAOImpl: Attempting to get all record rows in the database ordered by create date ascending"));
+			logger.debug("RecordDAOImpl: Attempting to get all record rows in the database ordered by create date ascending");
 			result = recordRepository.findAllByOrderByCreateDtAsc();
 			if (null == result) {
 				throw new DemographicsDatabaseAccessException("Failed to get all record rows in the database ordered by create date ascending");
@@ -79,6 +78,25 @@ public class RecordDAOImpl implements RecordDAO {
 			logger.error("RecordDAOImpl: Failed to get all record rows in the database ordered by create date ascending");
 		}
 
+		return result;
+	}
+
+	@Override
+	public RecordEntity getRecordByPps(String pps) {
+		logger.debug("RecordDAOImpl: getRecordByPps executed");
+		RecordEntity result = null;
+		
+		try {
+			logger.debug(String.format("RecordDAOImpl: Attempting to get all record by PPS: %s", pps));
+			result = recordRepository.findByPps(pps);
+			if (null == result) {
+				throw new DemographicsDatabaseAccessException(String.format("Failed to get record by PPS: %s", pps));
+			}
+		}
+		catch (DemographicsDatabaseAccessException e) {
+			logger.error(String.format("RecordDAOImpl: Failed to get record by PPS: %s", pps));
+		}
+		
 		return result;
 	}
 }

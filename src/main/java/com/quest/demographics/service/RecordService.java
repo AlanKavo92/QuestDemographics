@@ -11,4 +11,5 @@ import com.quest.demographics.entity.RecordEntity;
 public interface RecordService {
 	public RecordEntity processRecord(RecordEntity record);
 	public List<RecordEntity> getOrderedRecords();
+	public boolean isPpsExists(String pps);
 }

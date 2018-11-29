@@ -55,4 +55,12 @@ public class RecordServiceImpl implements RecordService {
 
 		return result;
 	}
+
+	@Override
+	public boolean isPpsExists(String pps) {
+		logger.debug("RecordServiceImpl: isPpsExists executed");
+		
+		RecordEntity record = recordDao.getRecordByPps(pps);		
+		return (record == null) ? false : true;
+	}
 }
