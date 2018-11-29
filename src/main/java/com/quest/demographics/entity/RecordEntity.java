@@ -1,13 +1,11 @@
 package com.quest.demographics.entity;
 
-import java.util.Date;
-import java.util.List;
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -15,7 +13,8 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
- * Record Database Entity
+ * RecordEntity
+ * 
  * @Author - Alan Kavanagh
  */
 @Entity
@@ -24,15 +23,15 @@ public class RecordEntity implements Serializable {
 
 	@Id
 	@Column(name = "PPS")
-    private String pps; // unique
+    private String pps;
 	
 	@Column(name = "NAME")
     private String name;
 
 	@Column(name = "DOB")
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="UTC")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy", timezone="UTC")
 	@Temporal(TemporalType.DATE)
-    private Date dob; // must be over 16 and date not in future
+    private Date dob;
     
 	@Column(name = "MOBILE")
     private String mobile;
@@ -54,5 +53,10 @@ public class RecordEntity implements Serializable {
 	public void setMobile(String mobile) { this.mobile = mobile; }
 	public Date getCreateDt() { return createDt; }
 	public void setCreateDt(Date createDt) { this.createDt = createDt; }
-	
+
+	@Override
+	public String toString() {
+		return "RecordEntity [pps=" + pps + ", name=" + name + ", dob=" + dob + ", mobile=" + mobile + ", createDt=" + createDt + "]";
+	}
+
 }

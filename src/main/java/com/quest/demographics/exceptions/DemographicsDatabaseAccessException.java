@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * DemographicsDatabaseAccessException
+ * 
  * @Author - Alan Kavanagh
  */
 public class DemographicsDatabaseAccessException extends Exception {

@@ -1,13 +1,15 @@
-package com.quest.demographics.service;
+package com.quest.demographics.dao;
 
 import java.util.List;
 
 import com.quest.demographics.entity.RecordEntity;
+
 /**
- * DemographicsService
+ * RecordDAO
+ * 
  * @Author - Alan Kavanagh
  */
-public interface DemographicsService {
+public interface RecordDAO {
 	public RecordEntity insertRecord(RecordEntity record);
 	public Iterable<RecordEntity> getRecords();
 	public List<RecordEntity> getRecordsOrderByCreateDtAsc();

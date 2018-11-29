@@ -1,9 +1,7 @@
 package com.quest.demographics.controller;
 
-import com.quest.demographics.DemographicsApplication;
 import com.quest.demographics.entity.RecordEntity;
-import com.quest.demographics.repository.RecordRepository;
-import com.quest.demographics.service.DemographicsService;
+import com.quest.demographics.service.RecordService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * DemographicsController
+ * 
  * @Author - Alan Kavanagh
  */
 @Controller
@@ -24,7 +23,7 @@ public class DemographicsController {
 	private static final Logger logger = LoggerFactory.getLogger(DemographicsController.class);
 
 	@Autowired
-	DemographicsService demographicsService;
+	RecordService recordService;
 	
     @GetMapping("/")
     public String displayIndexPage() {
@@ -35,7 +34,7 @@ public class DemographicsController {
     @GetMapping("/list")
     public String displayRecordList(Model model) {
 		logger.debug("DemographicsController: Get Request received for /list ");
-        model.addAttribute("records", demographicsService.getRecordsOrderByCreateDtAsc());
+        model.addAttribute("records", recordService.getOrderedRecords());
         return "list";
     }
 	
@@ -49,7 +48,8 @@ public class DemographicsController {
     @PostMapping("/insert")
     public String insertRecord(@ModelAttribute RecordEntity record) {
 		logger.debug("DemographicsController: Post Request received for /insert ");
-    	demographicsService.insertRecord(record);
+		System.out.println(record);
+    	recordService.processRecord(record);
         return "landing";
     }
 }
