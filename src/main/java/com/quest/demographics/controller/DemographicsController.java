@@ -7,12 +7,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,9 +63,9 @@ public class DemographicsController {
         return "landing";
     }
     
-	@RequestMapping(value = "/isPpsExists", method=RequestMethod.GET)
-	public ResponseEntity<Boolean> isPpsExists(@RequestParam String pps) throws Exception {
-		logger.debug("DemographicsController: GET Request received for /isPpsExists ");
+	@RequestMapping(value = "/isPpsAvailable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> isPpsAvailable(@RequestParam String pps) throws Exception {
+		logger.debug("DemographicsController: GET Request received for /isPpsAvailable ");
 
 		boolean isExists = recordService.isPpsExists(pps);
 		return new ResponseEntity<Boolean>(!isExists, HttpStatus.OK);

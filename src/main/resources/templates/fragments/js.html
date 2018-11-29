@@ -28,7 +28,15 @@
 							maxlength: 25
 						},
 						pps : {
-							required : true
+							required : true,
+							remote: {
+    							type: 'get',
+    							url: 'http://localhost:8080/isPpsAvailable',
+    							data: {
+        							'pps': function () { return $('#pps').val(); }
+    							},
+    							dataType: 'json'
+							}
 						},
 						dob : {
 							required : true
@@ -43,7 +51,8 @@
 							maxlength : "Name must only contain 25 characters"
 						},
 						pps : {
-							required : "Please fill out this field"
+							required : "Please fill out this field",
+							remote: "PPS Number already exists"
 						},
 						dob : {
 							required : "Please fill out this field"

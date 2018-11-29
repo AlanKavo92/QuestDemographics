@@ -37,6 +37,7 @@ public class RecordDAOImpl implements RecordDAO {
 				throw new DemographicsDatabaseAccessException(
 						String.format("Failed to insert the following record into the database: %s", record));
 			}
+			logger.info(String.format("RecordDAOImpl: Record inserted: %s", result.toString()));
 		} catch (DemographicsDatabaseAccessException e) {
 			logger.error(String.format("RecordDAOImpl: Failed to insert the following record into the database: %s", record));
 		}
@@ -54,7 +55,7 @@ public class RecordDAOImpl implements RecordDAO {
 			if (null == result) {
 				throw new DemographicsDatabaseAccessException("Failed to get all record rows in the database");
 			}
-
+			logger.info("RecordDAOImpl: Records found");
 		} catch (DemographicsDatabaseAccessException e) {
 			logger.error("RecordDAOImpl: Failed to get all record rows in the database");
 		}
@@ -73,7 +74,7 @@ public class RecordDAOImpl implements RecordDAO {
 			if (null == result) {
 				throw new DemographicsDatabaseAccessException("Failed to get all record rows in the database ordered by create date ascending");
 			}
-
+			logger.info(String.format("RecordDAOImpl: %s records found", result.size()));
 		} catch (DemographicsDatabaseAccessException e) {
 			logger.error("RecordDAOImpl: Failed to get all record rows in the database ordered by create date ascending");
 		}
@@ -87,11 +88,12 @@ public class RecordDAOImpl implements RecordDAO {
 		RecordEntity result = null;
 		
 		try {
-			logger.debug(String.format("RecordDAOImpl: Attempting to get all record by PPS: %s", pps));
+			logger.debug(String.format("RecordDAOImpl: Attempting to get record by PPS: %s", pps));
 			result = recordRepository.findByPps(pps);
 			if (null == result) {
 				throw new DemographicsDatabaseAccessException(String.format("Failed to get record by PPS: %s", pps));
 			}
+			logger.info(String.format("RecordDAOImpl: Record found: %s", result.toString()));
 		}
 		catch (DemographicsDatabaseAccessException e) {
 			logger.error(String.format("RecordDAOImpl: Failed to get record by PPS: %s", pps));

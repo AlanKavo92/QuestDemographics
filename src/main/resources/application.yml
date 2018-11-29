@@ -15,7 +15,12 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
     hibernate:
-      ddl-auto: create-drop 
+      ddl-auto: create-drop
+
+logging:
+  level:
+    org.springframework.web: ERROR
+    com.quest: INFO
 
 server:
   port: 8080

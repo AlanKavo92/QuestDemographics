@@ -31,9 +31,11 @@ public class RecordServiceImpl implements RecordService {
 
 		RecordEntity result = null;
 		try {
+			logger.debug("RecordServiceImpl: Attempting to insert record");
 			Date date = new Date();
 			record.setCreateDt(date);
 			result = recordDao.insertRecord(record);
+			logger.info("RecordServiceImpl: Finished inserting record");
 		} 
 		catch (Exception e) {
 			logger.error(String.format("RecordServiceImpl: Failed to process record %s", record));
@@ -47,10 +49,12 @@ public class RecordServiceImpl implements RecordService {
 		
 		List<RecordEntity> result = null;
 		try {
+			logger.debug("RecordServiceImpl: Attempting to get records in order");
 			result = recordDao.getRecordsOrderByCreateDtAsc();
+			logger.info("RecordServiceImpl: Finished getting records in order");
 		} 
 		catch (Exception e) {
-			logger.error("RecordServiceImpl: Failed to get all records");
+			logger.error("RecordServiceImpl: Failed to get all records in order");
 		}
 
 		return result;
@@ -59,8 +63,10 @@ public class RecordServiceImpl implements RecordService {
 	@Override
 	public boolean isPpsExists(String pps) {
 		logger.debug("RecordServiceImpl: isPpsExists executed");
-		
-		RecordEntity record = recordDao.getRecordByPps(pps);		
+		logger.debug("RecordServiceImpl: Attempting to checking if PPS already exists in database");
+		RecordEntity record = recordDao.getRecordByPps(pps);
+		logger.info("RecordServiceImpl: Finished checking if PPS already exists in database");
+
 		return (record == null) ? false : true;
 	}
 }
