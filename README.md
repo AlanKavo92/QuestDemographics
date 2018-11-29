@@ -26,6 +26,7 @@
 - [x] PPS field required
 - [x] PPS field no duplicates
 - [x] DOB field
+- [x] DOB field datepicker
 - [x] DOB field required
 - [ ] DOB field format
 - [ ] DOB field disable future date
