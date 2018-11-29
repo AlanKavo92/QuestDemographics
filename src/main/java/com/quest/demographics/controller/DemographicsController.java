@@ -48,6 +48,7 @@ public class DemographicsController {
     @PostMapping("/insert")
     public String insertRecord(@ModelAttribute RecordEntity record) {
 		logger.debug("DemographicsController: Post Request received for /insert ");
+		logger.info(record.toString());
 		System.out.println(record);
     	recordService.processRecord(record);
         return "landing";

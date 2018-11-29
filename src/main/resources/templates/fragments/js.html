@@ -5,7 +5,7 @@
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/jquery-ui.min.js"></script>
 		<script src="/js/jquery.validate.min.js"></script>
-		<script src="/js/jquery.validate.min.js"></script>
+		<script src="/js/additional-methods.min.js"></script>
 		<link rel="stylesheet" href="/css/jquery-ui.min.css" />
 	</div>
 
@@ -30,6 +30,7 @@
 							required : true
 						},
 						mobile : {
+							pattern: /^08(\d){8}$/
 						}
 					},
 					messages : {
@@ -44,6 +45,7 @@
 							required : "Please fill out this field"
 						},
 						mobile : {
+							pattern : "Mobile must be of format 08XXXXXXXX"
 						}
 					}
 				});

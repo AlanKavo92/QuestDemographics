@@ -29,7 +29,7 @@ public class RecordEntity implements Serializable {
     private String name;
 
 	@Column(name = "DOB")
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy", timezone="UTC")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM-dd-yyyy", timezone="UTC")
 	@Temporal(TemporalType.DATE)
     private Date dob;
     
@@ -58,5 +58,4 @@ public class RecordEntity implements Serializable {
 	public String toString() {
 		return "RecordEntity [pps=" + pps + ", name=" + name + ", dob=" + dob + ", mobile=" + mobile + ", createDt=" + createDt + "]";
 	}
-
 }
