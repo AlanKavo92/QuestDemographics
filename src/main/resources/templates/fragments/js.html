@@ -15,7 +15,7 @@
 	</div>
 	
 	<div th:fragment="datepicker"> 
-		<script> $( function() { $("#datepicker").datepicker({minDate: new Date(1900, 1, 1), maxDate: "-16Y"})}); </script>
+		<script> $( function() { $("#datepicker").datepicker({minDate: new Date(1900, 1, 1), maxDate: "-16Y", changeMonth: true, changeYear: true})}); </script>
 	</div>
 
 	<div th:fragment="validation">
