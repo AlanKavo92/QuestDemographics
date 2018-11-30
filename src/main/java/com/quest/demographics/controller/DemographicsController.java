@@ -32,6 +32,11 @@ public class DemographicsController {
 	@Autowired
 	RecordService recordService;
 	
+    /**
+     * GET Request
+     * Displays the landing web page
+     * @return: landing.html
+     */
     @GetMapping("/")
     public String displayIndexPage() {
 		logger.debug("DemographicsController: Get Request received for / ");
@@ -39,6 +44,12 @@ public class DemographicsController {
         return "landing";
     }
     
+    /**
+     * GET Request
+     * Displays the list records web page
+     * @param: Model model: model object containing records
+     * @return: list.html
+     */
     @GetMapping("/list")
     public String displayRecordList(Model model) {
 		logger.debug("DemographicsController: Get Request received for /list ");
@@ -47,6 +58,12 @@ public class DemographicsController {
         return "list";
     }
 	
+    /**
+     * GET Request
+     * Displays the insert records web page
+     * @param: Model model: model object containing RecordEntity to capture form information
+     * @return: insert.html
+     */
     @GetMapping("/insert")
     public String displayInsertRecordForm(Model model) {
 		logger.debug("DemographicsController: Get Request received for /insert ");
@@ -55,6 +72,12 @@ public class DemographicsController {
         return "insert";
     }
 
+    /**
+     * POST Request
+     * Displays the landing web page
+     * @param: RecordEntity record: information parsed from the form
+     * @return: langing.html
+     */
     @PostMapping("/insert")
     public String insertRecord(@ModelAttribute RecordEntity record) {
 		logger.debug("DemographicsController: Post Request received for /insert ");
@@ -63,6 +86,13 @@ public class DemographicsController {
         return "landing";
     }
     
+    /**
+     * GET Request
+     * Returns false is the PPS already exists, else true
+     * @param pps: pps number to check against the database
+     * @return true/false
+     * @throws Exception
+     */
 	@RequestMapping(value = "/isPpsAvailable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> isPpsAvailable(@RequestParam String pps) throws Exception {
 		logger.debug("DemographicsController: GET Request received for /isPpsAvailable ");
