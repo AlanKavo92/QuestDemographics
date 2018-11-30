@@ -39,9 +39,9 @@ public class DemographicsController {
      */
     @GetMapping("/")
     public String displayIndexPage() {
-		logger.debug("DemographicsController: Get Request received for / ");
+    	logger.debug("DemographicsController: Get Request received for / ");
 
-        return "landing";
+		return "landing";
     }
     
     /**
@@ -52,10 +52,10 @@ public class DemographicsController {
      */
     @GetMapping("/list")
     public String displayRecordList(Model model) {
-		logger.debug("DemographicsController: Get Request received for /list ");
+    	logger.debug("DemographicsController: Get Request received for /list ");
 
-        model.addAttribute("records", recordService.getOrderedRecords());
-        return "list";
+    	model.addAttribute("records", recordService.getOrderedRecords());
+    	return "list";
     }
 	
     /**
@@ -66,9 +66,9 @@ public class DemographicsController {
      */
     @GetMapping("/insert")
     public String displayInsertRecordForm(Model model) {
-		logger.debug("DemographicsController: Get Request received for /insert ");
+    	logger.debug("DemographicsController: Get Request received for /insert ");
 
-        model.addAttribute("record", new RecordEntity());
+		model.addAttribute("record", new RecordEntity());
         return "insert";
     }
 
@@ -82,8 +82,8 @@ public class DemographicsController {
     public String insertRecord(@ModelAttribute RecordEntity record) {
 		logger.debug("DemographicsController: Post Request received for /insert ");
 
-    	recordService.processRecord(record);
-        return "landing";
+		recordService.processRecord(record);
+		return "landing";
     }
     
     /**

@@ -23,18 +23,18 @@ public class RecordEntity implements Serializable {
 
 	@Id
 	@Column(name = "PPS")
-    private String pps;
+	private String pps;
 	
 	@Column(name = "NAME")
-    private String name;
+	private String name;
 
 	@Column(name = "DOB")
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM-dd-yyyy", timezone="UTC")
 	@Temporal(TemporalType.DATE)
-    private Date dob;
+	private Date dob;
     
 	@Column(name = "MOBILE")
-    private String mobile;
+	private String mobile;
 	
 	@Column(name = "CREATE_DT")
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy HH:mm:ss", timezone="UTC")

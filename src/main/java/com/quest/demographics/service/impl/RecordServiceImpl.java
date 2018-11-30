@@ -46,7 +46,7 @@ public class RecordServiceImpl implements RecordService {
 	@Override
 	public List<RecordEntity> getOrderedRecords() {
 		logger.debug("RecordServiceImpl: getOrderedRecords executed");
-		
+
 		List<RecordEntity> result = null;
 		try {
 			logger.debug("RecordServiceImpl: Attempting to get records in order");

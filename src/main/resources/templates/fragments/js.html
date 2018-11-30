@@ -1,5 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div th:fragment="jquery">
 		<script src="/js/jquery.min.js"></script>
@@ -20,49 +19,49 @@
 
 	<div th:fragment="validation">
 		<script>
-			$(document).ready(function() {
-				$('#insertRecordForm').validate({
-					rules : {
-						name : {
-							required : true,
-							maxlength: 25
-						},
-						pps : {
-							required : true,
-							remote: {
-    							type: 'get',
-    							url: 'isPpsAvailable',
-    							data: {
-        							'pps': function () { return $('#pps').val(); }
-    							},
-    							dataType: 'json'
-							}
-						},
-						dob : {
-							required : true
-						},
-						mobile : {
-							pattern: /^08(\d){8}$/
+		$(document).ready(function() {
+			$('#insertRecordForm').validate({
+				rules : {
+					name : {
+						required : true,
+						maxlength: 25
+					},
+					pps : {
+						required : true,
+						remote: {
+							type: 'get',
+							url: 'isPpsAvailable',
+							data: {
+								'pps': function () { return $('#pps').val(); }
+							},
+							dataType: 'json'
 						}
 					},
-					messages : {
-						name : {
-							required : "Please fill out this field",
-							maxlength : "Name must only contain 25 characters"
-						},
-						pps : {
-							required : "Please fill out this field",
-							remote: "PPS Number already exists"
-						},
-						dob : {
-							required : "Please fill out this field"
-						},
-						mobile : {
-							pattern : "Mobile must be of format 08XXXXXXXX"
-						}
+					dob : {
+						required : true
+					},
+					mobile : {
+						pattern: /^08(\d){8}$/
 					}
-				});
+				},
+				messages : {
+					name : {
+						required : "Please fill out this field",
+						maxlength : "Name must only contain 25 characters"
+					},
+					pps : {
+						required : "Please fill out this field",
+						remote: "PPS Number already exists"
+					},
+					dob : {
+						required : "Please fill out this field"
+					},
+					mobile : {
+						pattern : "Mobile must be of format 08XXXXXXXX"
+					}
+				}
 			});
+		});
 		</script>
 	</div>
 </body>

@@ -5,39 +5,39 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<div th:insert="~{fragments/js :: jquery}"></div>
-	<div th:insert="~{fragments/js :: bootstrap}"></div>
+    <div th:insert="~{fragments/js :: jquery}"></div>
+    <div th:insert="~{fragments/js :: bootstrap}"></div>
 
-	<div class="container">
-		<div class="row">
-			<h1 class="text-center">Insert Records</h1>
-			<form action="#" th:action="@{/insert}" th:object="${record}" method="post" id="insertRecordForm">
-				<div class="form-group row">
-					<label class="col-sm-12 col-form-label text-center">Name:</label>
-					<div class="col-sm-6 col-sm-offset-5"> <input type="text" th:field="*{name}"/> </div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-12 col-form-label text-center">PPS Number:</label>
-					<div class="col-sm-6 col-sm-offset-5"> <input type="text" id="pps" th:field="*{pps}" /> </div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-12 col-form-label text-center">Date of Birth:</label>
-					<div class="col-sm-6 col-sm-offset-5"> <input type="text" id="datepicker" readonly="readonly" th:field="*{dob}"/> </div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-12 col-form-label text-center">Mobile Phone:</label>
-					<div class="col-sm-6 col-sm-offset-5"> <input type="text" th:field="*{mobile}"/> </div>
-				</div>
-				<div class="form-group row text-center">
-					<p> <input class="btn btn-primary" type="submit" value="Submit"> <input class="btn btn-primary" type="reset" value="Reset"> </p>
-				</div>
-			</form>
-		</div>
-	</div>
-	
-	<div th:insert="~{fragments/footer :: urls}"></div>
-	<div th:insert="~{fragments/footer :: copy}"></div>
-	<div th:insert="~{fragments/js :: datepicker}"></div>
-	<div th:insert="~{fragments/js :: validation}"></div>
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">Insert Records</h1>
+            <form action="#" th:action="@{/insert}" th:object="${record}" method="post" id="insertRecordForm">
+                <div class="form-group row">
+                    <label class="col-sm-12 col-form-label text-center">Name:</label>
+                    <div class="col-sm-6 col-sm-offset-5"> <input type="text" th:field="*{name}"/> </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-form-label text-center">PPS Number:</label>
+                    <div class="col-sm-6 col-sm-offset-5"> <input type="text" id="pps" th:field="*{pps}" /> </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-form-label text-center">Date of Birth:</label>
+                    <div class="col-sm-6 col-sm-offset-5"> <input type="text" id="datepicker" readonly="readonly" th:field="*{dob}"/> </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-form-label text-center">Mobile Phone:</label>
+                    <div class="col-sm-6 col-sm-offset-5"> <input type="text" th:field="*{mobile}"/> </div>
+                </div>
+                <div class="form-group row text-center">
+                    <p> <input class="btn btn-primary" type="submit" value="Submit"> <input class="btn btn-primary" type="reset" value="Reset"> </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div th:insert="~{fragments/footer :: urls}"></div>
+    <div th:insert="~{fragments/footer :: copy}"></div>
+    <div th:insert="~{fragments/js :: datepicker}"></div>
+    <div th:insert="~{fragments/js :: validation}"></div>
 </body>
 </html>
