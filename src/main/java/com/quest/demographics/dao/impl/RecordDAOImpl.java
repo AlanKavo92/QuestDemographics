@@ -45,25 +45,6 @@ public class RecordDAOImpl implements RecordDAO {
 	}
 
 	@Override
-	public Iterable<RecordEntity> getRecords() {
-		logger.debug("RecordDAOImpl: getRecords executed");
-
-		Iterable<RecordEntity> result = null;
-		try {
-			logger.debug("RecordDAOImpl: Attempting to get all record rows in the database");
-			result = recordRepository.findAll();
-			if (null == result) {
-				throw new DemographicsDatabaseAccessException("Failed to get all record rows in the database");
-			}
-			logger.info("RecordDAOImpl: Records found");
-		} catch (DemographicsDatabaseAccessException e) {
-			logger.error("RecordDAOImpl: Failed to get all record rows in the database");
-		}
-
-		return result;
-	}
-	
-	@Override
 	public List<RecordEntity> getRecordsOrderByCreateDtAsc() {
 		logger.debug("RecordDAOImpl: getRecordsOrderByCreateDtAsc executed");
 

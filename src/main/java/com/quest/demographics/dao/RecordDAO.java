@@ -12,6 +12,5 @@ import com.quest.demographics.entity.RecordEntity;
 public interface RecordDAO {
 	public RecordEntity getRecordByPps(String pps);
 	public RecordEntity insertRecord(RecordEntity record);
-	public Iterable<RecordEntity> getRecords();
 	public List<RecordEntity> getRecordsOrderByCreateDtAsc();
 }
