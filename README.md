@@ -31,7 +31,7 @@
 - [x] DOB field
 - [x] DOB field datepicker
 - [x] DOB field required
-- [?] DOB field format
+- [x] DOB field format
 - [x] DOB field disable future date
 - [x] DOB field min age
 - [x] Mobile field
