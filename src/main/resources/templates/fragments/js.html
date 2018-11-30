@@ -15,11 +15,11 @@
 	</div>
 	
 	<div th:fragment="datepicker"> 
-		<script> $( function() { $("#datepicker").datepicker(); } ); </script>
+		<script> $( function() { $("#datepicker").datepicker({minDate: new Date(1900, 1, 1), maxDate: "-16Y"})}); </script>
 	</div>
 
 	<div th:fragment="validation">
-		<script>					
+		<script>
 			$(document).ready(function() {
 				$('#insertRecordForm').validate({
 					rules : {
@@ -31,7 +31,7 @@
 							required : true,
 							remote: {
     							type: 'get',
-    							url: 'http://localhost:8080/isPpsAvailable',
+    							url: 'isPpsAvailable',
     							data: {
         							'pps': function () { return $('#pps').val(); }
     							},
